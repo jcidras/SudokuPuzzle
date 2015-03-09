@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta description="Sudoku Puzzle">
+		<meta author="Jason Cidras">
+		<title>Sudoku Puzzle (Beta)</title>		
+		<script src="jquery-2.1.1.min.js" type="text/javascript"></script>	
+		<script src="SudokuPuzzleJS.js" type="text/javascript"></script>	
+	</head>	
+	<body>
+		<div style="display:inline-block;>
+			<div id="difficultyMode" style="width: 470px">
+				<fieldset>
+					<legend>
+						Difficulty:
+					</legend>
+					Easy: (Displays Error Count and Highlights Invalid Moves)
+					<input type="checkbox" id="easyMode" checked="true" /><br />
+					Hard: (Does Not Display Error Count or Delete Invalid Moves)
+					<input type="checkbox" id="hardMode" />
+				</fieldset>			
+			</div>
+			<div id="sudokuPuzzleDiv" style="text-align: center; width: 470px; display:inline">
+				<table id="sudokuTable">		
+					<tr>
+						<td>
+							<div id="sudokuInputDiv1" class="TableRow1Column1"></div>
+						</td>
+						<td>
+							<div id="sudokuInputDiv2" class="TableRow1Column2"></div>
+						</td>
+						<td>
+							<div id="sudokuInputDiv3" class="TableRow1Column3"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="sudokuInputDiv4" class="TableRow2Column1"></div>
+						</td>
+						<td>
+							<div id="sudokuInputDiv5" class="TableRow2Column2"></div>
+						</td>
+						<td>
+							<div id="sudokuInputDiv6" class="TableRow2Column3"></div>
+						</td>
+					</tr>
+					</tr>
+						<td>
+							<div id="sudokuInputDiv7" class="TableRow3Column1"></div>
+						</td>
+						<td>
+							<div id="sudokuInputDiv8" class="TableRow3Column2"></div>
+						</td>
+						<td>
+							<div id="sudokuInputDiv9" class="TableRow3Column3"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div style="width: 470px;">
+				<fieldset>
+					<legend>
+						Available Moves:
+					</legend>
+					<input id="lblAvailableMoves" style="border:none; background-color:White; color:Black; font-style: bold;" disabled="disabled"/>
+				</fieldset>
+			</div>
+			<div style="width: 470px;">
+				<fieldset>
+					<legend>
+						User Actions:
+					</legend>
+					<label id="lblMovesPlayed">Moves Played:
+						<input id="lblMovesPlayedValue" value="0" disabled="disabled" style="border:none; background-color:White; color:Black; font-style: bold;" />
+					</label>			
+					<div id="errorsMadeDiv">
+						<label id="lblErrorsMade">Errors Made:
+							<input id="lblErrorsMadeValue" value="0" disabled="disabled" style="border:none; background-color:White; color: Black; font-style: bold;" />
+						</label>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div style="float:right; overflow-y: scroll; height: 500px; ">
+			<fieldset>
+				<legend>
+					Error Messages:
+				</legend>
+				<div id="errorMessages">
+					
+				</div>
+			</fieldset>
+		</div>
+		<div id="buttonDivs">
+			<input type="button" id="btnRefreshPage" value="Reset Game" />
+			<input type="button" id="btnValidateGame" value="Validate Game" />
+		</div>
+	</body>
+</html>
+
+<style type="text/css">
+	.SudokuText
+	{
+		height: 30px;
+		width:30px;
+		display: inline;
+	}	
+	
+	.SudokuText:focus
+	{
+		text-align:center;
+		background-color:Yellow;
+	}
+	
+	.InvalidMove
+	{
+		border: Red;
+		background-color: Pink;
+	}
+	
+	.ErrorMessage
+	{
+		color: Red;
+		font-style: bold;
+	}
+	
+	#sudokuPuzzleDiv div
+	{
+		width: 150px;
+		height: 125px;
+		border: 1px solid black;
+		display: inline-block;
+	}
+</style>
